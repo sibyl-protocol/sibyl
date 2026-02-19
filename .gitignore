@@ -5,3 +5,9 @@ out/
 .env.local
 *.log
 .DS_Store
+oracle/.venv/
+-e 
+# Python
+__pycache__/
+*.pyc
+oracle/.venv/
