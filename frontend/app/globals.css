@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+:root {
+  --sibyl-purple: #8b5cf6;
+  --sibyl-blue: #3b82f6;
+  --sibyl-green: #10b981;
+  --sibyl-red: #ef4444;
+}
