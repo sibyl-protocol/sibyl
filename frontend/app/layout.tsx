@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import WalletProvider from "@/components/WalletProvider";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Sibyl — AI Oracle Prediction Market",
@@ -14,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="bg-gray-950 text-gray-100 min-h-screen antialiased">
-        {children}
+        <WalletProvider>
+          <Header />
+          {children}
+        </WalletProvider>
       </body>
     </html>
   );

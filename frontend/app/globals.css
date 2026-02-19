@@ -6,3 +6,12 @@
   --sibyl-green: #10b981;
   --sibyl-red: #ef4444;
 }
+
+/* Wallet adapter overrides for dark theme */
+.wallet-adapter-button {
+  font-family: inherit !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  font-family: inherit !important;
+}
