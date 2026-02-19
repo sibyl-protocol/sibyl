@@ -6,19 +6,19 @@ import { useState } from "react";
 const MARKETS = [
   {
     id: "clarity-act",
-    title: "CLARITY Act (H.R.3633) が2026年8月31日までに大統領署名で成立するか？",
+    title: "Will the CLARITY Act (H.R.3633) be signed into law by August 31, 2026?",
     description:
-      "Digital Asset Market Clarity Act — 暗号資産の規制枠組みを定義する米国法案。SECとCFTCの管轄を明確化する。",
+      "The Digital Asset Market Clarity Act defines the regulatory framework for crypto assets, clarifying SEC and CFTC jurisdiction.",
     deadline: "2026-08-31",
     yesPool: 142500,
     noPool: 87300,
     totalBets: 347,
     status: "active" as const,
-    tags: ["規制", "米国", "DeFi"],
+    tags: ["Regulation", "US", "DeFi"],
     oracleAgents: [
-      { name: "Gemini 3 Pro", status: "待機中" },
-      { name: "Claude Opus 4.5", status: "待機中" },
-      { name: "GPT-5.2", status: "待機中" },
+      { name: "Gemini 3 Pro", status: "standby" },
+      { name: "Claude Opus 4.5", status: "standby" },
+      { name: "GPT-5.2", status: "standby" },
     ],
   },
 ];
@@ -49,7 +49,7 @@ function MarketCard({ market }: { market: (typeof MARKETS)[0] }) {
             </span>
           ))}
           <span className="ml-auto text-sm text-gray-500">
-            残り {daysLeft} 日
+            {daysLeft} days left
           </span>
         </div>
 
@@ -90,7 +90,7 @@ function MarketCard({ market }: { market: (typeof MARKETS)[0] }) {
                 : "bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20"
             }`}
           >
-            Yes にベット
+            Bet Yes
           </button>
           <button
             onClick={() => setBetSide("no")}
@@ -100,7 +100,7 @@ function MarketCard({ market }: { market: (typeof MARKETS)[0] }) {
                 : "bg-red-500/10 text-red-400 hover:bg-red-500/20"
             }`}
           >
-            No にベット
+            Bet No
           </button>
         </div>
 
@@ -109,7 +109,7 @@ function MarketCard({ market }: { market: (typeof MARKETS)[0] }) {
             <div className="relative flex-1">
               <input
                 type="number"
-                placeholder="金額"
+                placeholder="Amount"
                 value={betAmount}
                 onChange={(e) => setBetAmount(e.target.value)}
                 className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-purple-500"
@@ -119,7 +119,7 @@ function MarketCard({ market }: { market: (typeof MARKETS)[0] }) {
               </span>
             </div>
             <button className="px-6 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg text-sm font-bold transition-colors">
-              確定
+              Confirm
             </button>
           </div>
         )}
@@ -142,7 +142,7 @@ function MarketCard({ market }: { market: (typeof MARKETS)[0] }) {
             />
           </svg>
           <span className="text-xs font-medium text-gray-400">
-            Oracle Agents（判定時に起動）
+            Oracle Agents (activated at resolution)
           </span>
         </div>
         <div className="flex gap-2">
@@ -159,11 +159,11 @@ function MarketCard({ market }: { market: (typeof MARKETS)[0] }) {
 
       {/* Stats */}
       <div className="border-t border-gray-800 px-6 py-3 flex items-center justify-between text-xs text-gray-500">
-        <span>{market.totalBets} ベット</span>
+        <span>{market.totalBets} bets</span>
         <span>
-          プール合計: {totalPool.toLocaleString()} SBYL
+          Total pool: {totalPool.toLocaleString()} SBYL
         </span>
-        <span>期限: {market.deadline}</span>
+        <span>Deadline: {market.deadline}</span>
       </div>
     </div>
   );
@@ -192,7 +192,7 @@ export default function Home() {
               <span className="text-purple-400 font-bold">SBYL</span> 0.00
             </div>
             <button className="px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg text-sm font-bold transition-colors">
-              ウォレット接続
+              Connect Wallet
             </button>
           </div>
         </div>
@@ -202,15 +202,14 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
-            AIが
+            Prediction Markets{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-              判定
+              Resolved by AI
             </span>
-            する予測市場
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            複数のAIエージェントが合議して、解釈が分かれるイベントを判定。
-            人間の投票を待たずに、数分で結果を確定。
+            Multiple AI agents deliberate and resolve ambiguous events through consensus.
+            No human voting delays — results confirmed in minutes.
           </p>
         </div>
 
@@ -218,13 +217,13 @@ export default function Home() {
         <div className="grid grid-cols-3 gap-4 mb-12">
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
             <div className="text-2xl font-bold text-purple-400">1</div>
-            <div className="text-xs text-gray-500">アクティブマーケット</div>
+            <div className="text-xs text-gray-500">Active Markets</div>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
             <div className="text-2xl font-bold text-emerald-400">
               229,800
             </div>
-            <div className="text-xs text-gray-500">SBYL プール合計</div>
+            <div className="text-xs text-gray-500">Total SBYL Pool</div>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
             <div className="text-2xl font-bold text-blue-400">3</div>
@@ -242,31 +241,31 @@ export default function Home() {
 
       {/* How it works */}
       <section className="max-w-6xl mx-auto px-6 py-12 border-t border-gray-800">
-        <h3 className="text-2xl font-bold text-center mb-8">仕組み</h3>
+        <h3 className="text-2xl font-bold text-center mb-8">How It Works</h3>
         <div className="grid grid-cols-4 gap-6">
           {[
             {
               step: "1",
-              title: "マーケット作成",
-              desc: "解釈が分かれるイベントを設定",
+              title: "Create Market",
+              desc: "Define an event open to interpretation",
               icon: "📋",
             },
             {
               step: "2",
-              title: "ベット",
-              desc: "SOL/USDCで参加、内部でSBYLに変換",
+              title: "Place Bets",
+              desc: "Bet with SOL/USDC, auto-converted to SBYL",
               icon: "💰",
             },
             {
               step: "3",
-              title: "AI判定",
-              desc: "3つのAIが独立に判断し合議",
+              title: "AI Resolution",
+              desc: "3 AI agents independently judge and reach consensus",
               icon: "🤖",
             },
             {
               step: "4",
-              title: "自動精算",
-              desc: "判定確定後、勝者に自動配分",
+              title: "Auto Settlement",
+              desc: "Winners paid out automatically on-chain",
               icon: "✅",
             },
           ].map((item) => (
