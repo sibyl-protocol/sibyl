@@ -46,7 +46,8 @@ async def judge(
     if not api_key:
         raise ValueError("OPENAI_API_KEY environment variable is required")
 
-    client = openai.AsyncOpenAI(api_key=api_key)
+    base_url = os.environ.get("OPENAI_BASE_URL")
+    client = openai.AsyncOpenAI(api_key=api_key, **({"base_url": base_url} if base_url else {}))
 
     prompt = JUDGMENT_PROMPT.format(
         title=market_title,
@@ -57,7 +58,7 @@ async def judge(
     logger.info("Querying %s...", PROVIDER_NAME)
 
     response = await client.chat.completions.create(
-        model="gpt-5.2",
+        model=os.environ.get("OPENAI_MODEL", "gpt-5.2"),
         temperature=0.1,
         max_tokens=1024,
         messages=[
