@@ -1,0 +1,23 @@
+[project]
+name = "sibyl-oracle"
+version = "0.1.0"
+description = "AI Oracle service for the Sibyl prediction market — 3-model consensus judgment"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.42.0",
+    "google-genai>=1.0.0",
+    "openai>=1.60.0",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "solana>=0.35.0",
+    "solders>=0.25.0",
+]
+
+[project.scripts]
+sibyl-oracle = "oracle.src.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
