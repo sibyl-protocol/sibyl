@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Mint, MintTo, Token, TokenAccount, Transfer};
 
-declare_id!("CzTVSkqAttKbsG17JqgzhsSyXiVVTf7Q5eNCd6X9bB3W");
+declare_id!("wQpV3yz4oTyRf4SE3xoZkBjxDTNSHUUUDgqT7YsKfcF");
 
 // ---------------------------------------------------------------------------
 // Constants

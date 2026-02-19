@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-sibyl = "CzTVSkqAttKbsG17JqgzhsSyXiVVTf7Q5eNCd6X9bB3W"
+sibyl = "wQpV3yz4oTyRf4SE3xoZkBjxDTNSHUUUDgqT7YsKfcF"
 
 [registry]
 url = "https://api.apr.dev"

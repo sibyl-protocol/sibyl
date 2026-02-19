@@ -26,7 +26,7 @@ from .types import MarketInfo, MarketStatus, Outcome
 logger = logging.getLogger(__name__)
 
 # Must match declare_id! in lib.rs
-PROGRAM_ID = Pubkey.from_string("CzTVSkqAttKbsG17JqgzhsSyXiVVTf7Q5eNCd6X9bB3W")
+PROGRAM_ID = Pubkey.from_string("wQpV3yz4oTyRf4SE3xoZkBjxDTNSHUUUDgqT7YsKfcF")
 
 PROTOCOL_SEED = b"protocol"
 MARKET_SEED = b"market"
